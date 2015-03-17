@@ -12,12 +12,11 @@ angular.module('fitlogtestApp')
 
     var User = $resource('/api/users/:usedId', {userId: '@id'});
 
-    var u = new User();
-    u.$save();
+    $scope.userName = '';
 
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+    $scope.addUser = function() {
+      var u = new User({'userName': 'foo'});
+      u.$save();
+    };
+
   });
